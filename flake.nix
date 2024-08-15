@@ -41,6 +41,9 @@
           propagatedBuildInputs = with pkgs.python3.pkgs; [ setuptools z3 ];
         };
       in rec {
+        packages = {
+          dev-shell = devShell.inputDerivation;
+        };
         devShell = pkgs.mkShell {
           DAPP_SOLC="${pkgs.solc}/bin/solc";
           packages = [
